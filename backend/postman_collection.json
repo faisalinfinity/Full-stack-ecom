@@ -21,9 +21,9 @@
         },
         "url": {
           "raw": "https://edgistify-backend.vercel.app/api/auth/register",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "5000",
+          "protocol": "https",
+          "host": ["edgistify-backend.vercel.app"],
+          
           "path": ["api", "auth", "register"]
         }
       },
@@ -45,9 +45,9 @@
         },
         "url": {
           "raw": "https://edgistify-backend.vercel.app/api/auth/login",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "5000",
+          "protocol": "https",
+          "host": ["edgistify-backend.vercel.app"],
+          
           "path": ["api", "auth", "login"]
         }
       },
@@ -73,9 +73,9 @@
         },
         "url": {
           "raw": "https://edgistify-backend.vercel.app/api/cart/add",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "5000",
+          "protocol": "https",
+          "host": ["edgistify-backend.vercel.app"],
+          
           "path": ["api", "cart", "add"]
         }
       },
@@ -101,9 +101,9 @@
         },
         "url": {
           "raw": "https://edgistify-backend.vercel.app/api/orders/place",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "5000",
+          "protocol": "https",
+          "host": ["edgistify-backend.vercel.app"],
+          
           "path": ["api", "orders", "place"]
         }
       },
@@ -129,9 +129,9 @@
         },
         "url": {
           "raw": "https://edgistify-backend.vercel.app/api/admin/product/add",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "5000",
+          "protocol": "https",
+          "host": ["edgistify-backend.vercel.app"],
+          
           "path": ["api", "admin", "product", "add"]
         }
       },
@@ -157,9 +157,9 @@
         },
         "url": {
           "raw": "https://edgistify-backend.vercel.app/api/admin/product/bulk-add",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "5000",
+          "protocol": "https",
+          "host": ["edgistify-backend.vercel.app"],
+          
           "path": ["api", "admin", "product", "bulk-add"]
         }
       },
@@ -172,9 +172,9 @@
         "header": [],
         "url": {
           "raw": "https://edgistify-backend.vercel.app/api/products?page=1&limit=10",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "5000",
+          "protocol": "https",
+          "host": ["edgistify-backend.vercel.app"],
+          
           "path": ["api", "products"],
           "query": [
             { "key": "page", "value": "1" },
@@ -196,9 +196,9 @@
         ],
         "url": {
           "raw": "https://edgistify-backend.vercel.app/api/cart",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "5000",
+          "protocol": "https",
+          "host": ["edgistify-backend.vercel.app"],
+          
           "path": ["api", "cart"]
         }
       },
@@ -222,9 +222,9 @@
         ],
         "url": {
           "raw": "https://edgistify-backend.vercel.app/api/cart/delete",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "5000",
+          "protocol": "https",
+          "host": ["edgistify-backend.vercel.app"],
+          
           "path": ["api", "cart", "delete"]
         }
       },
@@ -248,9 +248,9 @@
         ],
         "url": {
           "raw": "https://edgistify-backend.vercel.app/api/cart/delete/<CART_ITEM_ID>",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "5000",
+          "protocol": "https",
+          "host": ["edgistify-backend.vercel.app"],
+          
           "path": ["api", "cart", "delete", "<CART_ITEM_ID>"]
         }
       },
@@ -269,9 +269,9 @@
         ],
         "url": {
           "raw": "https://edgistify-backend.vercel.app/api/orders",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "5000",
+          "protocol": "https",
+          "host": ["edgistify-backend.vercel.app"],
+          
           "path": ["api", "orders"]
         }
       },
