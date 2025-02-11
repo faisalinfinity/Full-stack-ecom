@@ -34,12 +34,10 @@ router.post(
       if (existingCartItem) {
         existingCartItem.quantity += qty;
         await existingCartItem.save();
-        return res
-          .status(200)
-          .json({
-            message: "Cart updated successfully",
-            cartItem: existingCartItem,
-          });
+        return res.status(200).json({
+          message: "Cart updated successfully",
+          cartItem: existingCartItem,
+        });
       }
 
       const cartItem = new CartItem({
@@ -49,10 +47,14 @@ router.post(
       });
 
       await cartItem.save();
+      const allCartItems = await CartItem.find({ user: req.user }).populate(
+        "product"
+      );
 
-      res
-        .status(201)
-        .json({ message: "Product added to cart successfully", cartItem });
+      res.status(201).json({
+        message: "Product added to cart successfully",
+        updatedCart: allCartItems,
+      });
     } catch (error) {
       console.error(error);
       res.status(500).json({ message: "Server error" });
@@ -60,4 +62,53 @@ router.post(
   }
 );
 
+router.get(
+  "/",
+  authMiddleware,
+  async (req: AuthenticatedRequest, res: Response) => {
+    try {
+      const cartItems = await CartItem.find({ user: req.user }).populate(
+        "product"
+      );
+      res.status(200).json({ cart: cartItems });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: "Server error" });
+    }
+  }
+);
+
+
+router.delete(
+  "/delete",
+  authMiddleware,
+  async (req: AuthenticatedRequest, res: Response) => {
+    try {
+      await CartItem.deleteMany({ user: req.user });
+      res.status(200).json({ message: "Cart cleared successfully" });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: "Server error" });
+    }
+  }
+);
+
+router.delete(
+  "/delete/:id",
+  authMiddleware,
+  async (req: AuthenticatedRequest, res: Response) => {
+    try {
+      await CartItem.findByIdAndDelete(req.params.id);
+      res.status(200).json({
+        message: "Cart item deleted successfully",
+        updatedCart: await CartItem.find({ user: req.user }).populate(
+          "product"
+        ),
+      });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: "Server error" });
+    }
+  }
+);
 export default router;

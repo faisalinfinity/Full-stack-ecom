@@ -1,12 +1,12 @@
-import type React from "react"
-import { Link } from "react-router-dom"
-import { useAuth } from "../contexts/AuthContext"
-import { useCart } from "../contexts/CartContext"
-import { ShoppingCartIcon } from "@heroicons/react/24/outline"
+import type React from "react";
+import { Link } from "react-router-dom";
+import { useAuth } from "../contexts/AuthContext";
+import { useCart } from "../contexts/CartContext";
+import { ShoppingCartIcon } from "@heroicons/react/24/outline";
 
 const Navbar: React.FC = () => {
-  const { isAuthenticated, logout } = useAuth()
-  const { cartItems } = useCart()
+  const { isAuthenticated, logout } = useAuth();
+  const { cartItems } = useCart();
 
   return (
     <nav className="bg-white shadow-lg">
@@ -14,7 +14,11 @@ const Navbar: React.FC = () => {
         <div className="flex justify-between h-16">
           <div className="flex">
             <Link to="/" className="flex-shrink-0 flex items-center">
-              <img className="h-8 w-auto" src="/logo.svg" alt="Logo" />
+              <img
+                className="h-8 w-auto"
+                src="https://www.edgistify.com/favicon.png"
+                alt="Logo"
+              />
             </Link>
             <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
               <Link
@@ -29,12 +33,18 @@ const Navbar: React.FC = () => {
               >
                 Products
               </Link>
+              <Link
+                to="/orders"
+                className="text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-indigo-500 text-sm font-medium"
+              >
+                My Orders
+              </Link>
             </div>
           </div>
           <div className="hidden sm:ml-6 sm:flex sm:items-center">
             <Link
               to="/cart"
-              className="p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              className="p-1 mr-3 relative rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             >
               <span className="sr-only">View cart</span>
               <ShoppingCartIcon className="h-6 w-6" aria-hidden="true" />
@@ -63,8 +73,7 @@ const Navbar: React.FC = () => {
         </div>
       </div>
     </nav>
-  )
-}
+  );
+};
 
-export default Navbar
-
+export default Navbar;

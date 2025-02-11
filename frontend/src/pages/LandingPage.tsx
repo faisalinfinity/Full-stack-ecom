@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 
 const LandingPage: React.FC = () => {
   return (
-    <div className="bg-white">
+    <div className="bg-white min-h-screen">
       <div className="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
         <div className="text-center">
           <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl md:text-6xl">

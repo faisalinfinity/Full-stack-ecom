@@ -32,18 +32,14 @@ router.post(
       for (const item of cartItems) {
         const product = await Product.findById(item.product._id);
         if (!product) {
-          return res
-            .status(404)
-            .json({
-              message: `Product not found for item ${item.product._id}`,
-            });
+          return res.status(404).json({
+            message: `Product not found for item ${item.product._id}`,
+          });
         }
         if (product.stock < item.quantity) {
-          return res
-            .status(400)
-            .json({
-              message: `Insufficient stock for product ${product.name}`,
-            });
+          return res.status(400).json({
+            message: `Insufficient stock for product ${product.name}`,
+          });
         }
 
         product.stock -= item.quantity;
@@ -63,8 +59,8 @@ router.post(
         products: orderProducts,
         totalPrice,
         shippingAddress,
-        paymentStatus: "Pending",
-        orderStatus: "Pending",
+        paymentStatus: Math.random() > 0.5 ? "Paid" : "Pending",  
+        orderStatus:Math.random() > 0.5 ? "Shipped" : "Pending",
       });
 
       await order.save();
@@ -72,6 +68,22 @@ router.post(
       await CartItem.deleteMany({ user: req.user });
 
       res.status(201).json({ message: "Order placed successfully", order });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: "Server error" });
+    }
+  }
+);
+
+router.get(
+  "/",
+  authMiddleware,
+  async (req: AuthenticatedRequest, res: Response) => {
+    try {
+      const orders = await Order.find({ user: req.user }).populate(
+        "products.product"
+      );
+      res.status(200).json({ orders });
     } catch (error) {
       console.error(error);
       res.status(500).json({ message: "Server error" });
