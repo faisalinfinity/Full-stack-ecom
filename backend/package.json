@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "main": "dist/app.js",
   "scripts": {
-    "start": "ts-node-dev --respawn src/app.ts"
+    "build": "tsc",
+    "start": "node dist/app.js",
+    "dev": "ts-node-dev --respawn src/app.ts"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",

@@ -20,7 +20,7 @@
           "raw": "{\n    \"fullName\": \"John Doe\",\n    \"email\": \"john@example.com\",\n    \"password\": \"password123\"\n}"
         },
         "url": {
-          "raw": "http://localhost:5000/api/auth/register",
+          "raw": "https://edgistify-backend.vercel.app/api/auth/register",
           "protocol": "http",
           "host": ["localhost"],
           "port": "5000",
@@ -44,7 +44,7 @@
           "raw": "{\n    \"email\": \"john@example.com\",\n    \"password\": \"password123\"\n}"
         },
         "url": {
-          "raw": "http://localhost:5000/api/auth/login",
+          "raw": "https://edgistify-backend.vercel.app/api/auth/login",
           "protocol": "http",
           "host": ["localhost"],
           "port": "5000",
@@ -72,7 +72,7 @@
           "raw": "{\n    \"productId\": \"<PRODUCT_ID>\",\n    \"quantity\": 2\n}"
         },
         "url": {
-          "raw": "http://localhost:5000/api/cart/add",
+          "raw": "https://edgistify-backend.vercel.app/api/cart/add",
           "protocol": "http",
           "host": ["localhost"],
           "port": "5000",
@@ -100,7 +100,7 @@
           "raw": "{\n    \"shippingAddress\": \"123 Main Street, City, Country\"\n}"
         },
         "url": {
-          "raw": "http://localhost:5000/api/orders/place",
+          "raw": "https://edgistify-backend.vercel.app/api/orders/place",
           "protocol": "http",
           "host": ["localhost"],
           "port": "5000",
@@ -128,7 +128,7 @@
           "raw": "{\n    \"name\": \"New Product\",\n    \"price\": 100,\n    \"stock\": 50\n}"
         },
         "url": {
-          "raw": "http://localhost:5000/api/admin/product/add",
+          "raw": "https://edgistify-backend.vercel.app/api/admin/product/add",
           "protocol": "http",
           "host": ["localhost"],
           "port": "5000",
@@ -156,7 +156,7 @@
           "raw": "{\n   \"products\": [\n    {\n      \"name\": \"Product 1\",\n      \"price\": 10,\n      \"stock\": 100\n    },\n    {\n      \"name\": \"Product 2\",\n      \"price\": 20,\n      \"stock\": 50\n    }\n  ]\n}"
         },
         "url": {
-          "raw": "http://localhost:5000/api/admin/product/bulk-add",
+          "raw": "https://edgistify-backend.vercel.app/api/admin/product/bulk-add",
           "protocol": "http",
           "host": ["localhost"],
           "port": "5000",
@@ -171,7 +171,7 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "http://localhost:5000/api/products?page=1&limit=10",
+          "raw": "https://edgistify-backend.vercel.app/api/products?page=1&limit=10",
           "protocol": "http",
           "host": ["localhost"],
           "port": "5000",
@@ -195,7 +195,7 @@
           }
         ],
         "url": {
-          "raw": "http://localhost:5000/api/cart",
+          "raw": "https://edgistify-backend.vercel.app/api/cart",
           "protocol": "http",
           "host": ["localhost"],
           "port": "5000",
@@ -221,7 +221,7 @@
           }
         ],
         "url": {
-          "raw": "http://localhost:5000/api/cart/delete",
+          "raw": "https://edgistify-backend.vercel.app/api/cart/delete",
           "protocol": "http",
           "host": ["localhost"],
           "port": "5000",
@@ -247,7 +247,7 @@
           }
         ],
         "url": {
-          "raw": "http://localhost:5000/api/cart/delete/<CART_ITEM_ID>",
+          "raw": "https://edgistify-backend.vercel.app/api/cart/delete/<CART_ITEM_ID>",
           "protocol": "http",
           "host": ["localhost"],
           "port": "5000",
@@ -268,7 +268,7 @@
           }
         ],
         "url": {
-          "raw": "http://localhost:5000/api/orders",
+          "raw": "https://edgistify-backend.vercel.app/api/orders",
           "protocol": "http",
           "host": ["localhost"],
           "port": "5000",
