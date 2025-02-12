@@ -2,6 +2,10 @@
 
 A full-stack e-commerce platform built with React + Vite (Frontend) and Node.js + Express (Backend).
 
+## Deployed Link
+Frontend: https://edgistify-ecom.vercel.app/auth
+Backend: https://edgistify-backend.vercel.app
+
 ## 🚀 Tech Stack
 
 ### Frontend
@@ -205,12 +209,10 @@ Admin routes additionally require an admin role in the JWT token.
 src/
 ├── components/
 │   ├── ui/          # Shadcn UI components
-│   ├── layout/      # Layout components
 │   └── products/    # Product-related components
 ├── pages/           # Route pages
 ├── hooks/           # Custom hooks
 ├── lib/             # Utilities
-├── services/        # API services
 └── types/           # TypeScript types
 ```
 
@@ -223,6 +225,8 @@ src/
 ├── routes/         # API routes
 ├── utils/          # Utilities
 └── config/         # Configuration
+
+postman_collection.json
 ```
 
 
