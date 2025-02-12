@@ -3,7 +3,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { useToast } from "../hooks/use-toast";
 import { BASE_URL } from "../config/baseurl";
-import Cookies from "node_modules/@types/js-cookie";
+import Cookies from "js-cookie";
 
 interface User {
   fullName: string;
