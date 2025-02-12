@@ -1,10 +1,9 @@
-"use client";
-
 import type React from "react";
 import { createContext, useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { useToast } from "../hooks/use-toast";
-import {BASE_URL} from "../config/baseurl";
+import { BASE_URL } from "../config/baseurl";
+import Cookies from "node_modules/@types/js-cookie";
 
 interface User {
   fullName: string;
@@ -33,18 +32,19 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
 
   const login = async (email: string, password: string) => {
     try {
-      const response = await axios.post(
-        BASE_URL +"/api/auth/login",
-        { email, password }
-      );
-      localStorage.setItem("user", JSON.stringify(response.data));
+      const response = await axios.post(BASE_URL + "/api/auth/login", {
+        email,
+        password,
+      });
+      Cookies.set("user", JSON.stringify(response.data), { expires: 1 });
+
       setIsAuthenticated(true);
       setUser(response.data);
       toast({
         title: "Login Successful",
         description: "Welcome back!",
       });
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (error) {
       toast({
         title: "Login Failed",
@@ -60,7 +60,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
     password: string
   ) => {
     try {
-      await axios.post(BASE_URL+"/api/auth/register", {
+      await axios.post(BASE_URL + "/api/auth/register", {
         fullName,
         email,
         password,
@@ -69,7 +69,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
         title: "Registration Successful",
         description: "You can now log in with your new account.",
       });
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (error) {
       toast({
         title: "Registration Failed",
@@ -90,7 +90,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
   };
 
   useEffect(() => {
-    const user: User = JSON.parse(localStorage.getItem("user") || "{}");
+    const user: User = JSON.parse(Cookies.get("user") || "{}");
     if (user.token) {
       setIsAuthenticated(true);
       setUser(user);

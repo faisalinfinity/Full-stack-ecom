@@ -31,7 +31,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
   const { toast } = useToast();
   const { user, isAuthenticated } = useAuth();
 
-  const addToCart = (item: CartItem) => {
+  const addToCart = async(item: CartItem) => {
     return axios
       .post(
         BASE_URL+"/api/cart/add",
