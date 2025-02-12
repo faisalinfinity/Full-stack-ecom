@@ -2,7 +2,7 @@
 import type React from "react";
 import { useState } from "react";
 import { useAuth } from "../contexts/AuthContext";
-import { useNavigate } from "react-router-dom";
+
 import { Button } from "../components/ui/button";
 import { Input } from "../components/ui/input";
 import { Label } from "../components/ui/label";
@@ -26,19 +26,20 @@ const AuthPage: React.FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { login, register } = useAuth();
-  const navigate = useNavigate();
+
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     await login(email, password).then(() => {
-      navigate("/");
+      // navigate("/products");
     });
   };
 
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
     await register(fullName, email, password).then(() => {
-      navigate("/");
+      // navigate("/");
+    //  window.location.reload();
     });
   };
 

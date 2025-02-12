@@ -39,9 +39,10 @@ const PrivateRoute: React.FC<{ element: React.ReactElement }> = ({
 
 function App() {
   return (
+    <Router>
     <AuthProvider>
       <CartProvider>
-        <Router>
+        
           <div className="min-h-screen bg-gray-100">
             <Navbar />
             <Routes>
@@ -64,9 +65,10 @@ function App() {
             </Routes>
             <Toaster />
           </div>
-        </Router>
+        
       </CartProvider>
     </AuthProvider>
+    </Router>
   );
 }
 

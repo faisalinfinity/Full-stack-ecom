@@ -4,6 +4,7 @@ import axios from "axios";
 import { useToast } from "../hooks/use-toast";
 import { BASE_URL } from "../config/baseurl";
 import Cookies from "js-cookie";
+import { useNavigate } from "react-router-dom";
 
 interface User {
   fullName: string;
@@ -29,6 +30,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [user, setUser] = useState<User | null>(null);
   const { toast } = useToast();
+  const navigate=useNavigate()
 
   const login = async (email: string, password: string) => {
     try {
@@ -44,6 +46,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
         title: "Login Successful",
         description: "Welcome back!",
       });
+      navigate("/products");
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (error) {
       toast({
@@ -69,18 +72,19 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
         title: "Registration Successful",
         description: "You can now log in with your new account.",
       });
+      window.location.reload();
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (error) {
       toast({
         title: "Registration Failed",
-        description: "An error occurred during registration. Please try again.",
+        description: error.response.data.message,
         variant: "destructive",
       });
     }
   };
 
   const logout = () => {
-    localStorage.removeItem("user");
+    Cookies.remove("user");
     setIsAuthenticated(false);
     setUser(null);
     toast({
